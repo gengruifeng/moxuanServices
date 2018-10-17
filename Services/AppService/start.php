@@ -32,7 +32,7 @@ $server->setClassLoader($classLoader);
 #$server->setCrontabService(__DIR__ . '/crontab.php');
 
 #单文件配置目录,可以简单的通过 return array();做一些简单的配置
-\MicroService\Config::setUConfDir(ATF_CONFIG_DIR . '/UserConfig');
+\MicroService\Config::setUConfDir(CONFIG_DIR . '/UserConfig');
 
 $server->setBeforeInvoke(array(Logic\Common\ServiceContext::class, 'beforeInvoke'));
 $server->setAfterInvoke(array(Logic\Common\ServiceContext::class, 'afterInvoke'));

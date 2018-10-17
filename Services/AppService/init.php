@@ -17,9 +17,9 @@ if(file_exists($localConstFile)) {
 defined('COMMON_INCLUDE_DIR') || define('COMMON_INCLUDE_DIR', dirname(dirname(__DIR__)) . '/Include');
 
 #通用配置文件所在目录
-define('ATF_CONFIG_DIR', dirname(COMMON_INCLUDE_DIR) . '/Config');
+define('CONFIG_DIR', dirname(COMMON_INCLUDE_DIR) . '/Config');
 #加载通用常量配置
-require_once ATF_CONFIG_DIR . '/Const.php';
+require_once CONFIG_DIR . '/Const.php';
 #从MicroService框架中加载composer加载类
 $classLoader = require_once COMMON_INCLUDE_DIR . '/MicroService/vendor/autoload.php';
 
