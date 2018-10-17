@@ -1,0 +1,20 @@
+{
+    "name": "huxianjun/micro-service",
+    "description": "micro service framework",
+    "authors": [
+        {
+            "name": "胡宪君",
+            "email": "wamper@aliyun.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MicroService\\": "src"
+        }
+    },
+    "require": {
+        "php": ">=5.6",
+        "hprose/hprose-swoole": "^2.0",
+        "monolog/monolog": "^1.23"
+    }
+}

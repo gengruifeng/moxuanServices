@@ -1,0 +1,49 @@
+<?php
+error_reporting(E_ALL ^ E_NOTICE);
+if(PHP_SAPI != 'cli') {
+    die("微服务需要运行在命令行模式下！\n");
+}
+
+if(file_exists(__DIR__ . '/const.php')) {
+    require __DIR__ . '/const.php';
+}
+
+
+
+defined('APP_NAME') || define('APP_NAME', 'CommonService');
+defined('LIBRARY_DIR') || define('LIBRARY_DIR', '/data/wwwroot/Library');
+defined('MSF_INCLUDE_DIR') || define('MSF_INCLUDE_DIR', '/data/wwwroot/Include');
+$classLoader = require_once MSF_INCLUDE_DIR . '/MicroService/vendor/autoload.php';
+
+#要放到$classLoader的下边， 否则不会自动加载类
+defined('APP_LOG_LEVEL')  || define('APP_LOG_LEVEL', \Monolog\Logger::WARNING);
+
+#这个必须在创建服务对象前创建， 否则$service数组会加载失败
+$classLoader->addPsr4('Registers\\', __DIR__ . '/Registers/');
+$services = require_once __DIR__ . '/services.php';
+
+$listen = array('0.0.0.0', 10000);
+
+#swoole启动设置可以自己配置，建议不要启用daemonize, 而是通过supervisor进行服务管理
+$settings = array(
+    'daemonize'=>false
+);
+
+
+
+
+$server = new \MicroService\Server($listen, $services, $settings);
+$logger = new \MicroService\Logger();
+$logger->addLogHandler(new \Monolog\Handler\StreamHandler('php://output', APP_LOG_LEVEL));
+$server->setLogger($logger);
+
+$server->setClassLoader($classLoader);
+$server->setCrontabService(__DIR__ . '/crontab.php');
+\MicroService\Config::setUConfDir(__DIR__ . '/UserConfig');
+
+
+#设置hprose的beforeInvoke
+$server->setBeforeInvoke(array(\Com\MicroService\Context::class, 'beforeInvoke'));
+
+#启动服务
+$server->start();

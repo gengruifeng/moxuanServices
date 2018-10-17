@@ -1,0 +1,23 @@
+<?php
+return array(
+    #基础接口服务
+    'baseService'=>array(
+        'title'=>'基础数据服务',
+        'uri'=>'/baseService',
+        'register'=>\Lib\ServiceRegisters\BaseServiceRegister::class
+    ),
+
+    'userService'=>array(
+        'title'=>'用户信息服务',
+        'uri'=>'/userService',
+        'register'=>\Lib\ServiceRegisters\UserServiceRegister::class
+    ),
+
+    'messageService'=>array(
+        'title'=>'消息信息服务',
+        'uri'=>'/messageService',
+        'register'=>\Lib\ServiceRegisters\MessageServiceRegister::class
+    ),
+
+
+);

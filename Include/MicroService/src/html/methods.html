@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>方法列表</title>
+    <style type="text/css">
+        table{border-top:1px solid #005588;border-left:1px solid #005588}
+        td,th{text-align:left;padding:0 8px;border-right:1px solid #005588;border-bottom: 1px solid #005588}
+        th{background:#058;color:white}
+        a{text-decoration: none;color:blue}
+        a:hover{text-decoration: underline}
+        h4,dl,ol{margin:0}
+        dt{padding-left:25px}
+        dd{padding:0;margin:0}
+        li{padding:0;line-height:25px}
+    </style>
+</head>
+<body>
+    <dl style="position: fixed;top:10px;width:250px">
+        <dt>
+            <div style="padding-bottom:5px"><a href="<?=$baseUri?>">&lt;&lt;服务列表</a></div>
+            <h4>方法列表</h4>
+        </dt>
+        <dd>
+            <ol>
+                <?php $i=0;
+                foreach($methodList as $method):
+                $i++;
+                ?>
+                <li><a href="#<?=$method['methodInfo'][1]?>"><?=$method['methodInfo'][1]?></a></li>
+                <?php endforeach?>
+            </ol>
+        </dd>
+    </dl>
+    <table style="margin-left:260px">
+        <thead>
+        <tr>
+            <th style="width:20px"> #</th>
+            <th style="width:400px">方法名称</th>
+            <th>方法介绍</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+    $i = 0;
+    foreach($methodList as $method):
+    $i++;
+    $document = $method['document'];
+    $document = preg_replace('#^\s+#m', '', $document);
+    ?>
+        <tr><td style="color:red;background:#528"><?=sprintf('%02d', $i)?>.</td>
+            <td colspan="2" style="padding:5px;background:#528;font-size:15px;font-weight:bold;color:white"><a name="<?=$method['methodInfo'][1]?>"></a>
+                <?=implode('::', $method['methodInfo'][0])?>(...)
+            </td></tr>
+        <tr>
+            <td style="font-size:18px;color:#005588;font-weight:bold" colspan="2">
+                $<?=$serviceName?>-&gt;<?=$method['methodInfo'][1]?>(...)
+            </td>
+            <td><pre><?=$document?></pre></td>
+        </tr>
+        <?php endforeach?>
+        </tbody>
+    </table>
+
+</body>
+</html>

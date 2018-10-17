@@ -1,0 +1,33 @@
+<?php
+return array(
+    #数据库连接配置
+    'DB_CONFIGS'=>array(
+        'DEFAULT_CONN'=>array(
+            'DB_TYPE'=>'MYSQL',
+            'DB_HOST'=>'localhost',
+            'DB_USER'=>'root',
+            'DB_PASS'=>'',
+            'DB_NAME'=>'test',
+            'DB_CHARSET'=>'utf8mb4',
+            'DB_PREFIX'=>''
+        ),
+
+    ),
+    #REDIS连接配置
+    'REDIS_CONFIGS'=>array(
+        'DEFAULT_REDIS'=>array('host'=>'localhost', 'port'=>6379, 'db'=>1),
+    ),
+    #自动加载设置
+    'AUTOLOAD_CONFIGS'=>array(
+        #array('Lib\\', '/data/Service/Library'),
+    ),
+    #默认数据库连接
+    'DEFAULT_DB_CONN'=>'DEFAULT_CONN',
+    #默认REDIS连接
+    'DEFAULT_REDIS'=>'DEFAULT_REDIS',
+    #缓存设置
+    'CACHE_CONFIG'=>array(
+        'redis_conn'=>'DEFAULT_REDIS',
+        'cache_lifetime'=>600,  //默认10分钟
+    ),
+);

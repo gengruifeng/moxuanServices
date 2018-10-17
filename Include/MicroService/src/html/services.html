@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>服务列表</title>
+    <style type="text/css">
+        table{width: 900px;border:1px solid #ddd;margin:0 auto}
+        td,th{text-align:left;padding-left:8px}
+        th{background:#058;color:white}
+        a{text-decoration: none;color:blue}
+        a:hover{text-decoration: underline}
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>服务名称</th>
+            <th>服务地址</th>
+            <th>方法列表</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+        $i = 0;
+        foreach($services as $serviceKey=>$service):
+        $i++;
+        ?>
+        <tr>
+            <td><?=sprintf('%02d', $i)?></td>
+            <td><?=$service['title']?></td>
+            <td><?=$service['uri']?></td>
+            <td><a href="<?=$baseUri . '/' . $serviceKey?>">查看</a></td>
+        </tr>
+        <?php endforeach?>
+        </tbody>
+    </table>
+</body>
+</html>

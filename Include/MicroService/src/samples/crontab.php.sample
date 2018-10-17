@@ -1,0 +1,10 @@
+<?php
+return array(
+    /*
+    array(
+        'desc'=>'每分钟执行',
+        'timer'=>'1/* * * * *',
+        'callback'=>array('\\Tester', 'test'),
+    ),
+    */
+);
