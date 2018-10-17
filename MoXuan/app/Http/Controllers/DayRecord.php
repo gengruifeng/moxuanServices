@@ -14,11 +14,13 @@ class DayRecord extends Controller
 
     public function uploadImg()
     {
+
         try {
-            if(!empty($_FILES['img'])){
+
+            if(empty($_FILES['img'])){
                 throw new \Exception('参数错误');
             }
-
+            var_dump ($_FILES);die;
 
         } catch(\Exception $e) {
 
