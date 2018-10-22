@@ -36,6 +36,8 @@ require_once dirname(COMMON_INCLUDE_DIR) . '/Logic/Common/ServiceDef.php';
 $classLoader->addPsr4('Logic\\', dirname(COMMON_INCLUDE_DIR) . '/Logic');
 
 define ('STORAGE_PATH', dirname (__DIR__).'/storage');
+
+define ('PUBLIC_PATH', __DIR__);
 /*
 |--------------------------------------------------------------------------
 | Create The Application

@@ -2,42 +2,13 @@
 return  array(
     'DB_CONFIGS'=>array(
         #可以配置多连接
-
-        'COMMON_DATA_CONN'=>array(
+        'MOXUAN_CONN'=>array(
             'DB_TYPE'=>'mysql',
-            'DB_HOST'=>COMMON_DATA_DBHOST,
-            'DB_USER'=>COMMON_DATA_DBUSER,
-            'DB_PASS'=>COMMON_DATA_DBPASS,
-            'DB_NAME'=>COMMON_DATA_DBNAME,
-            'DB_DSN'=>COMMON_DATA_DBDSN,
-        ),
-
-        'AGENCY_CONFIG_CONN'=>array(
-            'DB_TYPE'=>'mysql',
-            'DB_HOST'=>AGENCY_CONFIG_DBHOST,
-            'DB_USER'=>AGENCY_CONFIG_DBUSER,
-            'DB_PASS'=>AGENCY_CONFIG_DBPASS,
-            'DB_NAME'=>AGENCY_CONFIG_DBNAME,
-            'DB_DSN'=>AGENCY_CONFIG_DBDSN,
-        ),
-
-        'CRM_CONN'=>array(
-            'DB_TYPE'=>'mysql',
-            'DB_HOST'=>CRM_DBHOST,
-            'DB_USER'=>CRM_DBUSER,
-            'DB_PASS'=>CRM_DBPASS,
-            'DB_NAME'=>CRM_DBNAME,
-            'DB_DSN'=>CRM_DBDSN,
-        ),
-
-
-        'MSSQL_CONN'=>array(
-            'DB_TYPE'=>'mysql',
-            'DB_HOST'=>MSSQL_DBHOST,
-            'DB_USER'=>MSSQL_DBUSER,
-            'DB_PASS'=>MSSQL_DBPASS,
-            'DB_NAME'=>MSSQL_DBNAME,
-            'DB_DSN'=>MSSQL_DBDSN,
+            'DB_HOST'=>MOXUAN_DBHOST,
+            'DB_USER'=>MOXUAN_DBUSER,
+            'DB_PASS'=>MOXUAN_DBPASS,
+            'DB_NAME'=>MOXUAN_DBNAME,
+            'DB_DSN'=>MOXUAN_DBDSN,
         ),
 
     ),

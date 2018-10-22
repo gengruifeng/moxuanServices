@@ -25,11 +25,20 @@ class Controller extends BaseController
 
     protected function outputJson()
     {
+        header('Content-type:text/json');
         $returnData = [
             'code' => $this->code,
             'message' => $this->message,
             'data' => $this->data,
         ];
-        return response()->json($returnData);
+        echo json_encode ($returnData);die;
+    }
+
+    protected function getRpcClient ($serviceName, $serviceModule)
+    {
+
+        if (!$rpcClient = \Logic\Common\RpcClients::getClient ($serviceName, $serviceModule))
+            throw new \Exception(setEexcetion ('微服务连接失败', 301));
+        return $rpcClient;
     }
 }

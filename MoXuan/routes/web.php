@@ -19,3 +19,11 @@ $router->get('/', function () use ($router) {
 $router->post('uploadimg', [
     'as' => 'uploadimg', 'uses' => 'DayRecord@uploadImg'
 ]);
+
+$router->post('publish', [
+    'as' => 'publish', 'uses' => 'DayRecord@publish'
+]);
+
+$router->get('getdayrecordlist', [
+    'as' => 'getdayrecordlist', 'uses' => 'DayRecord@getDayRecordList'
+]);
