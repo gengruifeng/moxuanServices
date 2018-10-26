@@ -1,7 +1,7 @@
 <?php
 #服务名称及端口定义
 defined('APP_SERVICE_NAME') || define('APP_SERVICE_NAME', 'MX_APP_SERVICE');
-defined('APP_SERVICE_PORT') || define('APP_SERVICE_PORT', 60001);
+defined('APP_SERVICE_PORT') || define('APP_SERVICE_PORT', 10001);
 
 
 
